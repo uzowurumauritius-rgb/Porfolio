@@ -221,7 +221,7 @@
         </div>
       </section>
 
-      <!-- ARCHITECTURE THINKING -->
+      <!--ARCHITECTURE-->
       <section id="architecture" class="section reveal">
         <h2 class="section-title">
           <span class="section-num">03.</span> ARCHITECTURE_THINKING
@@ -230,284 +230,40 @@
           I don't write code first. I define the system.
         </p>
 
-        <!-- Opening -->
         <div class="arch-philosophy">
           <div class="red-bar"></div>
           <p class="mono-sm muted">Before anything is built, I ask:</p>
           <ul class="bullet-list">
             <li><span class="neon arrow">›</span> What are the inputs?</li>
-            <li>
-              <span class="neon arrow">›</span> What transformations are
-              required?
-            </li>
+            <li><span class="neon arrow">›</span> What transformations are required?</li>
             <li><span class="neon arrow">›</span> Where does the data go?</li>
-            <li>
-              <span class="neon arrow">›</span> What breaks first when this
-              scales?
-            </li>
+            <li><span class="neon arrow">›</span> What breaks first when this scales?</li>
           </ul>
         </div>
 
-        <!-- System Model -->
-        <div class="arch-block">
-          <h3 class="arch-subtitle">SYSTEM MODEL</h3>
-          <p class="mono-sm muted">I reduce every system to:</p>
-          <div class="flow-diagram">
-            <div class="flow-node">INPUT</div>
-            <span class="flow-arrow">›</span>
-            <div class="flow-node">TRANSFORMATION</div>
-            <span class="flow-arrow">›</span>
-            <div class="flow-node flow-node--highlight">STATE</div>
-            <span class="flow-arrow">›</span>
-            <div class="flow-node">OUTPUT</div>
-          </div>
-          <div class="two-col-cards">
-            <div class="info-card">
-              <p class="card-label">TRANSFORMATION</p>
-              <p class="muted">What changes the data</p>
-            </div>
-            <div class="info-card info-card--glow">
-              <p class="card-label">STATE</p>
-              <p class="muted">Where the system remembers</p>
-              <p class="dim-note">
-                Most real problems are not logic problems — they are state
-                problems.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Layer Discipline -->
-        <div class="arch-block">
-          <h3 class="arch-subtitle">LAYER DISCIPLINE</h3>
-          <p class="mono-sm muted">
-            I enforce separation — not as theory, but as constraint.
-          </p>
-          <div class="layer-stack">
-            <div class="layer-row">
-              <div class="layer-label">INTERFACE</div>
-              <div class="layer-note">
-                If logic leaks in → the UI becomes fragile
-              </div>
-            </div>
-            <div class="layer-row">
-              <div class="layer-label">LOGIC</div>
-              <div class="layer-note">
-                If state leaks in → bugs become unpredictable
-              </div>
-            </div>
-            <div class="layer-row">
-              <div class="layer-label">STATE</div>
-              <div class="layer-note">Isolated. Predictable. Traceable.</div>
-            </div>
-            <div class="layer-row">
-              <div class="layer-label">INTEGRATION</div>
-              <div class="layer-note">
-                If tightly coupled → the system becomes rigid
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Data Flow -->
-        <div class="arch-block">
-          <h3 class="arch-subtitle">DATA FLOW FIRST, CODE SECOND</h3>
-          <p class="mono-sm muted">I design flow before implementation.</p>
-          <div class="flow-timeline-card">
-            <p class="card-label">MENTAL MODEL: USER REQUEST LIFECYCLE</p>
-            <div class="flow-timeline">
-              <div class="flow-step flow-step--first">
-                <div class="step-dot step-dot--active"></div>
-                <div class="step-line"></div>
-                <span class="step-label white">User Action</span>
-              </div>
-              <div class="flow-step">
-                <div class="step-dot"></div>
-                <div class="step-line"></div>
-                <span class="step-label muted">Input captured</span>
-              </div>
-              <div class="flow-step">
-                <div class="step-dot"></div>
-                <div class="step-line"></div>
-                <span class="step-label muted">Validated</span>
-              </div>
-              <div class="flow-step">
-                <div class="step-dot"></div>
-                <div class="step-line"></div>
-                <span class="step-label muted">Transformed</span>
-              </div>
-              <div class="flow-step">
-                <div class="step-dot"></div>
-                <div class="step-line"></div>
-                <span class="step-label muted">Stored or routed</span>
-              </div>
-              <div class="flow-step flow-step--last">
-                <div class="step-dot"></div>
-                <span class="step-label muted">Response generated</span>
-              </div>
-            </div>
-            <p class="dim-note border-top">
-              If the flow is unclear, the code will be messy. So I fix the flow
-              first.
-            </p>
-          </div>
-        </div>
-
-        <!-- Three Principles -->
         <div class="three-cards">
           <div class="principle-card">
             <h4 class="principle-title">COMPONENT THINKING</h4>
             <p class="muted">
-              I don't build "features". I define components with clear
-              responsibility, clear inputs, and clear outputs. Then connect
-              them.
+              Clear responsibility. Clear inputs. Clear outputs. Then connect them.
             </p>
-            <div class="principle-footer">
-              <p class="dim-note">
-                Bad systems fail at the connections, not the components.
-              </p>
-              <p class="formula">System = Components + Connections</p>
-            </div>
+            <p class="formula">System = Components + Connections</p>
           </div>
           <div class="principle-card">
-            <h4 class="principle-title">FAILURE AWARE DESIGN</h4>
+            <h4 class="principle-title">FAILURE AWARE</h4>
             <p class="muted">
-              I think about failure early. Invalid inputs. Service failures.
-              Inconsistent data. Most systems don't break at the happy path.
+              Systems don't break at the happy path. They break at the edges.
+              So I design for edges.
             </p>
-            <div class="principle-footer">
-              <p class="dim-note">
-                They break at the edges. So I design for edges.
-              </p>
-              <p class="formula">Design for edges, not the happy path.</p>
-            </div>
           </div>
           <div class="principle-card">
             <h4 class="principle-title">TRADE-OFF DRIVEN</h4>
             <p class="muted">
-              I don't chase "best". I choose based on constraints. Simplicity vs
-              Control. Speed vs Clarity. Abstraction vs Transparency.
+              No best — only intentional choices based on constraints.
             </p>
-            <div class="principle-footer">
-              <p class="dim-note">
-                Understanding the system matters more than speed of setup.
-              </p>
-              <p class="formula">No best — only intentional choices.</p>
-            </div>
           </div>
         </div>
 
-        <!-- Real Systems -->
-        <div class="arch-block">
-          <h3 class="arch-subtitle">REAL SYSTEMS</h3>
-          <div class="two-col-cards">
-            <div class="system-card">
-              <div class="system-card-header">
-                <span class="dot-glow"></span>
-                <h4>AUTOMATION PIPELINE (n8n)</h4>
-              </div>
-              <p class="mono-sm muted">
-                Designed as a flow system, not a script.
-              </p>
-              <div class="mini-flow">
-                <div class="mini-step">
-                  <span class="mini-dot"></span><span>Trigger</span>
-                </div>
-                <div class="mini-step">
-                  <span class="mini-dot"></span
-                  ><span>Structured workflow steps</span>
-                </div>
-                <div class="mini-step">
-                  <span class="mini-dot"></span
-                  ><span>External integrations</span>
-                </div>
-                <div class="mini-step mini-step--last">
-                  <span class="mini-dot"></span><span>Output</span>
-                </div>
-              </div>
-              <div class="system-notes">
-                <p class="neon-dim">
-                  WHY: Each step is isolated and replaceable.
-                </p>
-                <p class="dim-note">
-                  Easier debugging. Flexible modification. Clear visibility of
-                  flow.
-                </p>
-                <p class="dimmer">
-                  Trade-off: More setup upfront — long-term control and clarity.
-                </p>
-              </div>
-            </div>
-            <div class="system-card">
-              <div class="system-card-header">
-                <span class="dot-glow"></span>
-                <h4>STRUCTURAL DATA PROCESSING</h4>
-              </div>
-              <p class="mono-sm muted">
-                Sparse matrix — optimize for structure, not raw iteration.
-              </p>
-              <div class="mini-flow">
-                <div class="mini-step">
-                  <span class="mini-dot"></span><span>Input Matrix</span>
-                </div>
-                <div class="mini-step">
-                  <span class="mini-dot"></span
-                  ><span>Structured Representation</span>
-                </div>
-                <div class="mini-step">
-                  <span class="mini-dot"></span><span>Targeted Traversal</span>
-                </div>
-                <div class="mini-step">
-                  <span class="mini-dot"></span><span>Computation</span>
-                </div>
-                <div class="mini-step mini-step--last">
-                  <span class="mini-dot"></span><span>Output</span>
-                </div>
-              </div>
-              <div class="system-notes">
-                <p class="neon-dim">
-                  PROBLEM: Dense operations waste space and time.
-                </p>
-                <p class="dim-note">
-                  Store only meaningful values. Traverse only what exists.
-                </p>
-                <p class="dimmer">
-                  Decision: Optimize for structure, not raw iteration.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Principles + Final -->
-        <div class="two-col-cards">
-          <div class="info-card">
-            <p class="card-label">CORE PRINCIPLES</p>
-            <ul class="bullet-list">
-              <li>
-                <span class="neon arrow">›</span> I design before I implement
-              </li>
-              <li>
-                <span class="neon arrow">›</span> I separate before I optimize
-              </li>
-              <li>
-                <span class="neon arrow">›</span> I trace data before I debug
-              </li>
-              <li>
-                <span class="neon arrow">›</span> I choose trade-offs
-                intentionally
-              </li>
-            </ul>
-          </div>
-          <blockquote class="final-quote">
-            <p class="card-label">FINAL</p>
-            Code is the surface.<br />
-            <span class="neon">Architecture</span> is the system underneath.<br />
-            <span class="dim-note" style="display: block; margin-top: 1rem"
-              >That's where I spend most of my thinking.</span
-            >
-          </blockquote>
-        </div>
       </section>
 
       <!-- EDUCATION & CERTIFICATIONS -->
